@@ -4,7 +4,7 @@
   "description": "Best practices for writing Dockerfiles with TypeScript + Express Simple API Server",
   "main": "src/app.ts",
   "scripts": {
-    "start": "node app.js",
+    "start": "node dist/app.js",
     "build": "tsc --project ./tsconfig.json",
     "dev": "cross-env NODE_ENV=development ts-node --transpile-only src/app.ts",
     "dev:nodemon": "cross-env NODE_ENV=development nodemon",
