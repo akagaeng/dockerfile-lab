@@ -1,8 +1,11 @@
 .git*
 README.md
+*.log
 
 .env*
 
 node_modules
 
-Dockerfile
+Dockerfile1
+Dockerfile2
+Dockerfile3
