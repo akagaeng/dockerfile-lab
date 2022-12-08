@@ -18,9 +18,9 @@
     "noEmit": false,
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "importHelpers": true,
+    "importHelpers": false,
     "baseUrl": "src",
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "src/logs", "src/tests"]
 }
