@@ -10,20 +10,17 @@ Experiment how efficient best practices for writing Dockerfiles
 
 ```shell
 dist/           #   4 KB
-node_modules/   # 123 MB
+node_modules/   # 123 MB - CASE yarn install
+node_modules/   #  18 MB - CASE yarn install --production
 src/            #   2 KB
 LICENSE         #   1 KB
 yarn.lock       # 100 KB
 package.json    #   2 KB
 tsconfig.json   # 714 B
 README.md       # 205 B
-------------------------
-                # 233 KB
 ```
 
-### Dockerfile
-
-Instruction
+### Dockerfile Instructions
 
 * use `node:18-alpine3.16` as a base image
 * install packages including [azure-cli](https://pypi.org/project/azure-cli/)
@@ -33,19 +30,22 @@ Instruction
 
 ### Docker Images
 
+* Base image `node:18-alpine3.16` size: `165MB`
+
 | Dockerfile       | RUN lines | Build Stage | Image Size | Build Duration |
 |------------------|-----------|-------------|------------|----------------|
 | dockerfile-lab-1 | Multiple  | Single      | `2.47 GB`  | `167.9s`       |
 | dockerfile-lab-2 | Single    | Single      | `2.46 GB`  | `174.9s`       |
-| dockerfile-lab-3 | Single    | Multiple    | `2.35 GB`  | ``             |
+| dockerfile-lab-3 | Single    | Multiple    | `2.35 GB`  | `140.3s`       |
 
 ### Result
 
-* Single line, Multiple Build stage
+* **Single-lined** got smaller image size but longer build duration than **multi-lined**
+* **Multi-staged** got smaller image size but longer build duration than **single-staged**
 
 ## Useful commands
 
-* All services
+### For all services
 
 ```shell
 # Run all 
@@ -58,7 +58,7 @@ docker-compose build
 docker-compose build --no-cache
 ```
 
-* Specific service
+### For a specific service
 
 ```shell
 # Run only dockerfile-lab-1
