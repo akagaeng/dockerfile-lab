@@ -1,0 +1,32 @@
+version: "3.8"
+services:
+  dockerfile-lab-1:
+    container_name: dockerfile-lab-1
+    build:
+      context: .
+      dockerfile: Dockerfile1
+    ports:
+      - "3001:3000"
+    environment:
+      - PORT=3000
+      - NODE_ENV=development
+  dockerfile-lab-2:
+    container_name: dockerfile-lab-2
+    build:
+      context: .
+      dockerfile: Dockerfile2
+    ports:
+      - "3002:3000"
+    environment:
+      - PORT=3000
+      - NODE_ENV=development
+  dockerfile-lab-3:
+    container_name: dockerfile-lab-3
+    build:
+      context: .
+      dockerfile: Dockerfile3
+    ports:
+      - "3003:3000"
+    environment:
+      - PORT=3000
+      - NODE_ENV=development
