@@ -23,8 +23,8 @@ app.use(cookieParser());
 // Routes
 app.get('/', (req, res, next) => {
     const message = 'Hello Dockerfile Lab!';
-    console.log(message)
-    res.json({message})
+    console.log(message, process.env.NODE_ENV, process.env.PORT)
+    res.json({message, node_env: process.env.NODE_ENV ?? 'N/A', port: process.env.PORT ?? 'N/A'})
 });
 
 // initializeSwagger
